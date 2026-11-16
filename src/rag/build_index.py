@@ -90,7 +90,7 @@ def main():
     print("Разбиение текстов на чанки...")
     for row in df.itertuples(index=True):
         text = str(row.text)
-        topic = str(row.topic) if hasattr(row, "topic") else "unknown"
+        topic = str(getattr(row, "topic", getattr(row, "category", "unknown")))
         doc_id = int(row.Index)
 
         for chunk in chunk_text_by_sentences(text, tokenizer=tokenizer):

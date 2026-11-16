@@ -31,7 +31,7 @@ def evaluate(model: nn.Module, loader: DataLoader, loss_fn: nn.Module):
 
 
 def main(num_epochs: int = 10, batch_size: int = 32, lr: float = 1e-3, max_features: int = 1000):
-    tracking_uri = os.getenv("MLFLOW_TRACKING_URI", "file:./mlruns")
+    tracking_uri = os.getenv("MLFLOW_TRACKING_URI", "sqlite:///mlflow.db")
     mlflow.set_tracking_uri(tracking_uri)
     mlflow.set_experiment("doc-assistant-classifier")
 

@@ -1,5 +1,8 @@
 import os
-from langchain.agents import AgentType, Tool, initialize_agent
+try:
+    from langchain.agents import AgentType, Tool, initialize_agent
+except ImportError:
+    from langchain_classic.agents import AgentType, Tool, initialize_agent
 from langchain_ollama import ChatOllama
 
 from src.agent.agent_tools import TOOLS
