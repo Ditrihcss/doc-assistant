@@ -99,7 +99,8 @@ def main(num_epochs: int = 10, batch_size: int = 32, lr: float = 1e-3, max_featu
         mlflow.log_metric("best_test_acc", best_test_acc)
         mlflow.pytorch.log_model(
             model,
-            artifact_path="model",
+            name="model",
+            input_example=X_train[:1].numpy(),
             registered_model_name="DocTextClassifier",
         )
         print("Эксперимент и модель зарегистрированы в MLflow (DocTextClassifier).")
