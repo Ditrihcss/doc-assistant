@@ -1,0 +1,27 @@
+# Python / Virtualenv
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets & Environment
+.env
+
+# Data & Large Artifacts
+data/raw/
+data/processed/clean.csv
+data/vector_db/
+models/
+mlruns/
+mlartifacts/
+*.db
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
