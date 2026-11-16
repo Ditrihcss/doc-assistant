@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+
 try:
     from langchain.agents import AgentType, Tool, initialize_agent
 except ImportError:
@@ -7,6 +9,7 @@ from langchain_ollama import ChatOllama
 
 from src.agent.agent_tools import TOOLS
 
+load_dotenv()
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:3b")
 
 llm = ChatOllama(model=OLLAMA_MODEL, temperature=0.1)

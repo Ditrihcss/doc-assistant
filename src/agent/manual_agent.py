@@ -43,7 +43,7 @@ def run_agent(question: str, max_steps: int = 5) -> str:
             return decision.get("answer", "Ответ не сформирован.")
 
         tool_name = action
-        tool_input = decision.get("input", "")
+        tool_input = decision.get("input") or ""
 
         if tool_name in TOOLS:
             print(f"Вызов инструмента: {tool_name}('{tool_input}')")
