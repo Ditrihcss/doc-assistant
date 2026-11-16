@@ -20,6 +20,9 @@ def main():
     df["text"] = df["text"].astype(str).str.strip().str.replace(r"\s+", " ", regex=True)
     df = df[df["text"].str.len() > 50]
 
+    # Перемешиваем и ограничиваем размер выборки, чтобы не перегружать память
+    df = df.sample(frac=1, random_state=42).reset_index(drop=True).head(1500)
+
     df.to_csv(OUTPUT_PATH, index=False, encoding="utf-8")
     print(f"Готово: {len(df)} документов -> {OUTPUT_PATH}")
 
